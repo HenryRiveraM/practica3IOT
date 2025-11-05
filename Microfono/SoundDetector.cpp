@@ -24,7 +24,7 @@ void SoundDetector::monitor() {
     lastPeakTime = now;
 
     if (peakCount >= requiredPeaks && !intentoEnviado) {
-      Serial.println("🎤 Patrón válido detectado, enviando intento...");
+      Serial.println("Patrón válido detectado, enviando intento...");
       mqttManager.publish("INTENTO_DE_APERTURA");
       tiempoUltimoIntento = now;
       intentoEnviado = true;
@@ -33,7 +33,7 @@ void SoundDetector::monitor() {
   }
 
   if (intentoEnviado && (now - tiempoUltimoIntento >= tiempoParaOff)) {
-    Serial.println("🔒 Enviando OFF automáticamente después de tiempo de espera");
+    Serial.println("Enviando OFF automáticamente después de tiempo de espera");
     mqttManager.publish("OFF");
     intentoEnviado = false;
   }

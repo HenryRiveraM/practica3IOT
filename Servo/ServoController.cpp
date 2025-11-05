@@ -9,12 +9,12 @@ void ServoController::initialize() {
 
 void ServoController::openLock() {
     motor.write(180);
-    Serial.println("🔓 Cerradura abierta");
+    Serial.println("Cerradura abierta");
     delay(1000);
 }
 
 void ServoController::closeLock() {
     motor.write(0);
-    Serial.println("🔒 Cerradura cerrada");
+    Serial.println("Cerradura cerrada");
     delay(1000);
 }
